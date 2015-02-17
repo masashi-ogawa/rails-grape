@@ -31,15 +31,11 @@ module V1
         requires :id, type: String, desc: 'User id'
         requires :status, type: Integer, desc: 'User status'
       end
-      # route_param :id do
-      #   put do
-      #     @@users[params[:id]][:status] = params[:status]
-      #     @@users[params[:id]]
-      #   end
-      # end
-      put :id do
-        @@users[params[:id]][:status] = params[:status]
-        @@users[params[:id]]
+      route_param :id do
+        put do
+          @@users[params[:id]][:status] = params[:status]
+          @@users[params[:id]]
+        end
       end
 
       desc 'create user'
