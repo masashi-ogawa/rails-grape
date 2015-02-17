@@ -12,8 +12,8 @@ module V1
 
     resource :users do
       desc 'all users'
-      get do
-        @@users.values
+      get jbuilder: 'v1/user/index' do
+        @users = @@users.values
       end
 
       desc 'get user'
